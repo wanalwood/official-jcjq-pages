@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩足球 · 简明观赛与投注参考</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+            background: #f5f3f0;
+            color: #1e1d1c;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 hero */
+        .hero {
+            background: #121212;
+            background-image: radial-gradient(circle at 30% 40%, #2b2b30 0%, #0d0d0d 100%);
+            min-height: 48vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "⚽";
+            font-size: 14rem;
+            opacity: 0.045;
+            position: absolute;
+            right: -2rem;
+            bottom: -3.5rem;
+            pointer-events: none;
+            transform: rotate(12deg);
+            color: #fff;
+        }
+
+        .hero h1 {
+            color: #f0ede8;
+            font-size: 3.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero .subhead {
+            color: #cdc9c3;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0.8rem auto 0;
+            border-top: 1px solid #3b3a38;
+            padding-top: 1rem;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            color: #b8b4ad;
+            font-size: 0.95rem;
+            margin-top: 1.2rem;
+            background: rgba(255,255,255,0.04);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 浅色正文区 container */
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 3.5rem;
+            background: #faf9f7;
+        }
+
+        .intro-section {
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-section:last-of-type {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 450;
+            letter-spacing: -0.01em;
+            border-left: 5px solid #d94f14;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #1e1b18;
+        }
+
+        .section-title span {
+            background: #d94f14;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin-left: 0.8rem;
+            vertical-align: middle;
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+            font-size: 1.05rem;
+            color: #2b2926;
+        }
+
+        .highlight-box {
+            background: #f2eee9;
+            padding: 1.4rem 1.8rem;
+            border-radius: 16px;
+            margin: 1.6rem 0 2rem;
+            border-left: 3px solid #d94f14;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.2rem;
+        }
+
+        a {
+            color: #d94f14;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, background 0.2s;
+            padding: 0 0.1rem;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #d94f14;
+            background: rgba(217, 79, 20, 0.04);
+        }
+
+        .two-col-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem 2rem;
+            margin: 1.6rem 0 2.2rem;
+        }
+
+        .list-item {
+            flex: 1 1 200px;
+            background: #f4f1ed;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+        }
+
+        .list-item strong {
+            display: block;
+            font-weight: 550;
+            color: #3a2c22;
+            margin-bottom: 0.25rem;
+        }
+
+        .list-item span {
+            font-size: 0.95rem;
+            color: #4f4842;
+        }
+
+        .faq-mini {
+            background: #f3efe9;
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .faq-mini dt {
+            font-weight: 550;
+            margin-top: 0.8rem;
+            color: #312b26;
+        }
+
+        .faq-mini dt:first-of-type {
+            margin-top: 0;
+        }
+
+        .faq-mini dd {
+            margin-left: 0.6rem;
+            color: #4a433d;
+            font-size: 0.98rem;
+        }
+
+        .footer-note {
+            margin-top: 3.2rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #d9d4ce;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #6b615b;
+        }
+
+        .footer-note a {
+            color: #b35f2b;
+        }
+
+        .footer-note a:hover {
+            background: rgba(179, 95, 43, 0.06);
+            border-color: #b35f2b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .subhead {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem 2.5rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .two-col-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>踢球心里有数</h1>
+        <div class="subhead">从看球到决策 · 一份简明参考</div>
+        <div class="tagline">⚽ 聚焦赛事，而非冲动</div>
+    </header>
+
+    <!-- 浅色正文区 -->
+    <main class="container">
+
+        <!-- 背景说明 -->
+        <section class="intro-section">
+            <h2 class="section-title">日常看球之外<span>背景</span></h2>
+            <p>足球周末的乐趣不止于呐喊与宵夜。越来越多朋友在关注比赛之余，也会顺手翻翻数据、瞄一眼赔率波动——不是因为非要下注，而是想更立体地理解一场比赛的脉络。从阵容伤病到天气湿度，从主客场节奏到裁判尺度，这些信息其实都指向同一个问题：<strong>这场球，到底该怎么看？</strong></p>
+            <p>我们留意到，很多人赛前喜欢找个清晰的地方快速浏览关键信息，而不是被海量新闻淹没。正因如此，一份聚合基础数据与即时信息的页面，反而比冗长的分析更有用。<a href="https://official-jcjq.com">竞彩足球</a>就是这样一个偏向实用型的导航角色——它不负责替你预测，但能帮你把赛前需要知道的碎片串起来。</p>
+        </section>
+
+        <!-- 三段自然介绍之一：简明指南 -->
+        <section class="intro-section">
+            <h2 class="section-title">指南 · 信息三明治</h2>
+            <p>很多时候我们打开一个体育网站，第一眼看到的是滚动新闻和营销弹窗。但对于只想快速确认“今天有哪些焦点战”“伤病名单更新了没”的人来说，这种体验并不友好。所谓简明指南，就是把信息做成三明治：最上层是当日对阵和实时赔率趋势，中间夹着球队近况与交锋记录，底层则是赛前简报与天气场地提示。</p>
+            <div class="highlight-box">
+                <p>⚡ 举个例子：你点开一场德甲，先看到主队最近三个主场全胜，但核心中场停赛；赔率从初盘1.80升到1.95，市场明显在修正——这本身就是一种信号，不需要谁替你下判断。</p>
+            </div>
+            <p>这种结构让每个人都能按自己的节奏获取信息。资深玩家可以跳过基础直奔伤停，偶尔看看的朋友也能在三十秒内了解大概。没有套路，只有信息本身。</p>
+        </section>
+
+        <!-- 三段自然介绍之二：实用特点 -->
+        <section class="intro-section">
+            <h2 class="section-title">凑近看 · 几个实用特点</h2>
+            <div class="two-col-list">
+                <div class="list-item">
+                    <strong>🏟️ 多维度快览</strong>
+                    <span>联赛、杯赛、国家队赛事分层展示，避免混杂。</span>
+                </div>
+                <div class="list-item">
+                    <strong>📊 赔率变化标识</strong>
+                    <span>上升/下降用颜色区分，一眼看出市场情绪偏移。</span>
+                </div>
+                <div class="list-item">
+                    <strong>📋 赛前简报聚合</strong>
+                    <span>只提取关键伤停、天气、裁判信息，不堆砌废话。</span>
+                </div>
+                <div class="list-item">
+                    <strong>⏱️ 临场提醒</strong>
+                    <span>开赛前两小时更新首发预测与最新动态。</span>
+                </div>
+            </div>
+            <p>这些设计不是为了制造焦虑，而是让每一次查阅都更有效率。哪怕你只是想在周末晚上挑一场焦点战看，也能从这里快速找到靠谱的赛前参考。</p>
+        </section>
+
+        <!-- 三段自然介绍之三：场景与提醒 -->
+        <section class="intro-section">
+            <h2 class="section-title">场景与提醒<span>常看常新</span></h2>
+            <p>有人习惯周五晚上打开<a href="https://official-jcjq.com">竞彩足球</a>，把周末的五大联赛过一遍，标记出自己感兴趣的场次；也有人是赛前半小时才匆匆点开，只为了确认一下首发名单。两种场景都很普遍，所以页面的节奏也更偏向“快速浏览”而非“深度阅读”。</p>
+            <p>需要多说一句：足球博弈最大的魅力在于不确定性，任何参考都只是辅助思考的工具。不要因为一次连续命中就放大自信，也不要因为连续不中而盲目加注。保持观察，比什么都重要。</p>
+            <div class="faq-mini">
+                <dl>
+                    <dt>❓ 数据更新频率如何？</dt>
+                    <dd>通常每三到五分钟同步一次赔率与伤停变动，重大首发消息会在确认后五分钟内更新。</dd>
+                    <dt>❓ 需要注册才能看吗？</dt>
+                    <dd>完全不需要。所有基础信息与赔率变化均免费浏览，无需注册或登录。</dd>
+                    <dt>❓ 怎么看待推荐内容？</dt>
+                    <dd>页面不提供任何所谓“稳胆”或“红单”，只呈现事实与数据，决策请完全由自己做出。</dd>
+                </dl>
+            </div>
+        </section>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <p>无论周末只想安安静静看场球，还是想结合数据做点自己的功课，<a href="https://official-jcjq.com">竞彩足球</a> 都值得你放进书签。保持好奇，保持清醒。</p>
+            <p style="margin-top: 0.6rem; font-style: italic; color: #8a7f76;">⚽ 享受比赛，量力而行。</p>
+        </div>
+
+    </main>
+</body>
+</html>
